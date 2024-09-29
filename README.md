@@ -1,2 +1,4 @@
-# notes
-I will be using this repo for storing all my obsidian notes
+Choose the topic
+- [[Operating Systems]]
+- [[Database Management System]]
+- 
