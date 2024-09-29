@@ -1,0 +1,160 @@
+{
+  "main": {
+    "id": "37bf8f3d23ec6e06",
+    "type": "split",
+    "children": [
+      {
+        "id": "9b181c675150b7a8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "77847dfc61a702d8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Operating Systems/02 Introduction to Operating Systems.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "db3187cc9d1d84c1",
+    "type": "split",
+    "children": [
+      {
+        "id": "9d72e2f214ec08f4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "059be31bd13025f2",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "5b6e6b35977ac15e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ad9e9bce5272aa99",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "a035952bfea2b6d7",
+    "type": "split",
+    "children": [
+      {
+        "id": "f1dd98f58c5f57c7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fe2a6298e9ae2a7e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Operating Systems/02 Introduction to Operating Systems.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c0f51d682b6216e2",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Operating Systems/02 Introduction to Operating Systems.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9010217017a96a74",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "845ede893d8a35b5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Operating Systems/02 Introduction to Operating Systems.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "059be31bd13025f2",
+  "lastOpenFiles": [
+    "Operating Systems/Operating Systems.md",
+    "Operating Systems/02 Introduction to Operating Systems.md",
+    "Welcome to Ninja.md",
+    "Database Management System/Database Management System.md",
+    "Database Management System",
+    "create a link.md",
+    "Operating Systems"
+  ]
+}
