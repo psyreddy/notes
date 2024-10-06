@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "Operating Systems/02 Introduction to Operating Systems.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "a035952bfea2b6d7",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Operating Systems/02 Introduction to Operating Systems.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "Operating Systems/02 Introduction to Operating Systems.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "Operating Systems/02 Introduction to Operating Systems.md"
               }
             }
           }
@@ -146,12 +147,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "77847dfc61a702d8",
+  "active": "059be31bd13025f2",
   "lastOpenFiles": [
-    "Welcome to Ninja.md",
-    "README.md",
+    "Operating Systems/images",
     "Operating Systems/02 Introduction to Operating Systems.md",
     "Operating Systems/Operating Systems.md",
+    "README.md",
+    "Welcome to Ninja.md",
     "Database Management System/Database Management System.md",
     "Database Management System",
     "create a link.md",
