@@ -1,4 +1,4 @@
 Choose the topic
-- [[Index of Operating Systems]]
-- [[Database Management System]]
-- 
+
+- [OS](os/index.md)
+- [DBMS](dbms/index.md)
