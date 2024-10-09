@@ -76,13 +76,60 @@ This program at first step prints the process id and the address allocated throu
 
 Now lets compile the program using the command `gcc -o mem mem.c -Wall`. As a first step lets run the program (`./mem 1`) . After this run multiple instances of same program (`./mem 143 & ./mem 1`). Now observe the output.
 
-![](images/part1/mem1.png)
-
-*Output when you run one instance of the program.*
-
-![](images/part1/mem2.png)
-
-*Output when you run 2 instances of the program*
+<figure style="text-align: center;">
+  <img src="images/part1/mem1.png" alt="alt-txt" width=50%>
+  <figcaption>Output when you run one instance of the program.</figcaption>
+</figure>
 
 
+<figure style="text-align: center;">
+  <img src="images/part1/mem2.png" alt="alt-txt" width=50%>
+  <figcaption>Output when you run two instances of the program.</figcaption>
+</figure>
+
+
+
+We can observe that the first time when we run the program once, the malloc function allocates the address pointed by the pointer `0x5555555592a0` and the value at that location is updated every second.
+
+Now carefully observe the second output. We can see that program with pid `4240` (p1) and program with pid `4241` (p2) were allocated the same address space pointed by pointer `0x5555555592a0` and p1 is saying that the value stored at that address is 3 initially and its updating the same, while p2 is saying that the value stored at that address is 131 initially and its updating the same. 
+
+How is this even possible? Two different programs are pointing to same address and modifying the value at that position. This is also part of the illusion that is being created by OS. Here each program is running in its own virtual private memory instead of running in the same physical memory with the other program. 
+
+In simpler terms, Each program has access to its own <ins>virtual private address space</ins> which the OS maps to the physical memory of machine. An address space of one program will not interfere with the address space of other. 
+
+# 2.3 Concurrency
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include "common.h"
+#include "common_threads.h"
+
+volatile int counter = 0; 
+int loops;
+
+void *worker(void *arg) {
+    int i;
+    for (i = 0; i < loops; i++) {
+	    counter++;
+    }
+    return NULL;
+}
+
+int main(int argc, char *argv[]) {
+    if (argc != 2) { 
+      fprintf(stderr, "usage: threads <loops>\n"); 
+      exit(1); 
+    } 
+    loops = atoi(argv[1]);
+    pthread_t p1, p2;
+    printf("Initial value : %d\n", counter);
+    Pthread_create(&p1, NULL, worker, NULL); 
+    Pthread_create(&p2, NULL, worker, NULL);
+    Pthread_join(p1, NULL);
+    Pthread_join(p2, NULL);
+    printf("Final value   : %d\n", counter);
+    return 0;
+}
+```
 
