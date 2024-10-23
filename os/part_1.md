@@ -1,4 +1,6 @@
-# 2.0 Introduction
+# Introduction
+
+[Reference](https://pages.cs.wisc.edu/~remzi/OSTEP/intro.pdf)
 
 **What does running a program mean?**
 
@@ -13,7 +15,7 @@ The primary way OS does this is through *virtualization*. The OS takes the physi
 
 For the users to make use of OS (such as running a program, or allocating memory, or accessing a file), the OS provides some APIs that you can call. A typical OS exports a few hundreds **system calls** that are available for applications to use.
 
-# 2.1 Virtualizing The CPU
+## 2.1 Virtualizing The CPU
 
 ```c
 #include <stdio.h>
@@ -45,7 +47,7 @@ Now lets create multiple instances of the same process by running the command `.
 
 Wait WTF is happening the single CPU is running multiple processes at the same time? Yes! indeed, The Operating System with help from hardware creates an illusion that the system has a very large number of virtual CPUs. The thing to note here is each process will be in an illusion that it has the whole CPU resource for itself. For the user to tell the OS which program to run, stop we need some interfaces (APIs) to communicate to OS.
 
-# 2.2 Virtualizing Memory
+## 2.2 Virtualizing Memory
 
 ```c
 #include <unistd.h>
@@ -97,7 +99,7 @@ How is this even possible? Two different programs are pointing to same address a
 
 In simpler terms, Each program has access to its own <ins>virtual private address space</ins> which the OS maps to the physical memory of machine. An address space of one program will not interfere with the address space of other. 
 
-# 2.3 Concurrency
+## 2.3 Concurrency
 
 ```c
 #include <stdio.h>
@@ -132,4 +134,28 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 ```
+
+As we can see in above two cases that OS is running many threads at the same time. As of now we can consider two threads as two different processes but sharing the same piece of virtual memory. 
+
+Now lets have a look at the above code. The above piece of code creates two threads which will start working on the same function `worker` concurrently. This implies if we set the value of `loops` to `N`, ideally the value of `counter` should be `2N` since two different threads are independently incrementing the value of `counter`. Now lets try running the same program for different values of `N`.
+
+Compile the program using `gcc -o threads threads.c -Wall -pthread`. And run the program using `./threads <loops>`
+
+<figure style="text-align: center;">
+  <img src="images/part1/threads1.png" alt="alt-txt" width=75%>
+  <figcaption>Output when value of <code>loop</code> is 1000</figcaption>
+</figure>
+
+
+<figure style="text-align: center;">
+  <img src="images/part1/threads2.png" alt="alt-txt" width=75%>
+  <figcaption>Output when value of <code>loop</code> is 1000000</figcaption>
+</figure>
+
+From the first output we can see that the two threads have done their job and we get the output value as 2000. Coming to the second case where loops was set to 1000000, we see that the output of the program is not 2000000. Not only this it was neither consistent.
+
+The above phenomenon happens due to the fact that two threads will be sharing the same piece of virtual memory and the operation of the worker (which is adding `1` to the counter) is not atomic. We will learn more about this in coming $2^{nd}$ pillar of OS **concurrency**.
+
+## 2.4 Persistence
+
 

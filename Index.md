@@ -1,4 +1,4 @@
 Choose the topic
 
-- [OS](os/index.md)
-- [DBMS](dbms/index.md)
+- [Operating Systems](os/index.md)
+- [Database Management System](dbms/index.md)
