@@ -1,4 +1,4 @@
-# Introduction
+# 2. Introduction
 
 [Reference](https://pages.cs.wisc.edu/~remzi/OSTEP/intro.pdf)
 
@@ -79,13 +79,13 @@ This program at first step prints the process id and the address allocated throu
 Now lets compile the program using the command `gcc -o mem mem.c -Wall`. As a first step lets run the program (`./mem 1`) . After this run multiple instances of same program (`./mem 143 & ./mem 1`). Now observe the output.
 
 <figure style="text-align: center;">
-  <img src="images/part1/mem1.png" alt="alt-txt" width=50%>
+  <img src="images/mem1.png" alt="alt-txt" width=50%>
   <figcaption>Output when you run one instance of the program.</figcaption>
 </figure>
 
 
 <figure style="text-align: center;">
-  <img src="images/part1/mem2.png" alt="alt-txt" width=50%>
+  <img src="images/mem2.png" alt="alt-txt" width=50%>
   <figcaption>Output when you run two instances of the program.</figcaption>
 </figure>
 
@@ -142,14 +142,14 @@ Now lets have a look at the above code. The above piece of code creates two thre
 Compile the program using `gcc -o threads threads.c -Wall -pthread`. And run the program using `./threads <loops>`
 
 <figure style="text-align: center;">
-  <img src="images/part1/threads1.png" alt="alt-txt" width=75%>
-  <figcaption>Output when value of <code>loop</code> is 1000</figcaption>
+  <img src="images/threads1.png" alt="alt-txt" width=50%>
+  <figcaption>Output when value of <code>loops</code> is 1000</figcaption>
 </figure>
 
 
 <figure style="text-align: center;">
-  <img src="images/part1/threads2.png" alt="alt-txt" width=75%>
-  <figcaption>Output when value of <code>loop</code> is 1000000</figcaption>
+  <img src="images/threads2.png" alt="alt-txt" width=50%>
+  <figcaption>Output when value of <code>loops</code> is 1000000</figcaption>
 </figure>
 
 From the first output we can see that the two threads have done their job and we get the output value as 2000. Coming to the second case where loops was set to 1000000, we see that the output of the program is not 2000000. Not only this it was neither consistent.
@@ -158,4 +158,39 @@ The above phenomenon happens due to the fact that two threads will be sharing th
 
 ## 2.4 Persistence
 
+``` c
+#include <stdio.h>
+#include <unistd.h>
+#include <assert.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <string.h>
+
+int main(int argc, char *argv[]) {
+  int fd = open("/tmp/file", O_WRONLY | O_CREAT | O_TRUNC,S_IRUSR | S_IWUSR);
+  assert(fd >= 0);
+  char buffer[20];
+  sprintf(buffer, "hello world\n");
+  int rc = write(fd, buffer, strlen(buffer));
+  assert(rc == (strlen(buffer)));
+  fsync(fd);
+  close(fd);
+  return 0;
+}
+```
+
+The $3^{rd}$ pillar of OS is persistance. The primary memory of system i.e, RAM or DRAM is stored in a volatile manner in such a way that when the power goes down or system crashes, any data is erased. But we need a hardware and software to store the required data persistently.
+
+In present day systems, the hardware comes in form of some kind of I/O device. The software in the OS that usually manages the disk is called file system. File system is responsible for storing the files created by user in efficient manner.
+
+Unlike the virtualisation provided by OS for CPU and memory the disk space is not virtualised i.e, its not private for each of the program. Infact, its shared between different programs.
+
+Now lets have a look at the code, in the above code we are creating a file `/tmp/file` that contains `"hello world"` in it. For this we are making use of three system calls. `open()`,`write()`, `close()`. These system calls takes the help the file system of OS to make changes to the required files in context.
+
+File system when it recieves a request to write something to a file, it first figures out where on disk to store the files and also file system keeps track of it in various structures that file system maintains. Also for improvement of performance of the system most file systems delay writing process into disk waiting for batching write requests into larger groups.
+
+## 2.5 Design Goals
+
+- 
 

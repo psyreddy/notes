@@ -1,6 +1,4 @@
-# Vitualizing the CPU
-
-## The Abstraction: The Process 
+# 4. The Abstraction: The Process 
 
 [Reference](https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-intro.pdf)
 
@@ -10,4 +8,4 @@ The program is a lifeless things that will be residing on the disk. The OS takes
 
 The OS creates this illusion by virtualizing the CPU. The OS runs one process, then pause it, runs other and so on. Doing this the OS creates an illusion on infinate CPUs. This technique is called **time sharing** of CPU. The main cost of this method is performance. If we run many processes at once, it may affect the performance of each process.
 
-For implementing the virtualization, OS requires some low level machineary and high level intelligence. 
+For implementing the virtualization, OS requires some low level mechanisms and high level intelligence.

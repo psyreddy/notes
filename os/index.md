@@ -4,20 +4,21 @@
 ## Introduction
 
 - [Dialogue on Introduction](https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-threeeasy.pdf)
-- Part 1 [Introduction](part_1.md)
+- [Introduction](introduction/introduction.md)
 
 ## Virtualization
 
-- [Dialogue on Virtualization](https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-virtualization.pdf)
-- Part 2  [Virtualization of CPU](part_2.md)
-- Part 3  [Virtualization of Memory](part_3.md)
+### Virtualization of CPU
 
+- [Dialogue on Virtualization of CPU](https://pages.cs.wisc.edu/~remzi/OSTEP/dialogue-virtualization.pdf)
+- [Processes](virtualisation/vcpu/processes.md)
+- 
 
+### Virtualization of Memory
 
+## Concurrency
 
-
-
-
+## Persistance
 
 
 
